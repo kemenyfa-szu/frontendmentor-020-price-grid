@@ -1,7 +1,188 @@
-.attribution {
-    font-size: 11px;
+@font-face {
+    font-family: 'Karla';
+    src: url('./font/Karla-VariableFont_wght.ttf');
+}
+
+:root {
+    /* Primary */
+    --cyan: hsl(179, 62%, 43%);
+    --cyan-light: hsl(179, 47%, 52%);
+    --cyan-bright: hsl(179, 47%, 77%);
+    --bright-yellow: hsl(71, 73%, 54%);
+    --bright-yellow-light: hsl(71, 73%, 60%);
+    --bright-yellow-bright: hsl(71, 73%, 66%);
+
+    /* Neutral */
+    --light-gray: hsl(204, 43%, 93%);
+    --grayish-blue: hsl(218, 22%, 67%);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    background-color: var(--light-gray);
+    color: white;
+    font-family: 'Karla',  Arial, Helvetica, sans-serif;
+    font-weight: 400;
+}
+
+main {
+    display: flex;
+    min-height: calc(100vh - 12px);
+    justify-content: center;
+    align-items: center;
+}
+
+h2 {
+    font-size: clamp(1.2rem, calc(0.7rem + 2vw), 1.45rem);
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+h3 {
+    font-size: 1.1rem;
+    margin-bottom: 1.25rem;
+    font-weight: 700;
+}
+
+p {
+    font-weight: 400;
+    margin-bottom: 1rem;
+}
+
+.price-component {
+    display: grid;
+    margin: max(2rem, 5vw);
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0px 0px 100px hsla(0, 0%, 0%, 0.2);
+}
+
+.price-component > * {
+    padding: max(1.75rem, 2vw) clamp(1.5rem, 3vw, 2.25rem);
+}
+
+p.catchy {
+    font-size: clamp(0.92rem, calc(0.5rem + 1.5vw), 1.15rem);
+    line-height: 1.4em;
+    font-weight: 700;
+}
+
+p.long-text {
+    font-size: clamp(0.85rem, calc(0.5rem + 1.5vw), 1rem);
+    line-height: 1.60rem;
+    margin-bottom: clamp(0.5rem, 3vw, 2rem);
+}
+
+p.per-month {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+p.per-month strong {
+    display: block;
+    font-size: 2rem;
+    margin-right: 0.3em;
+    font-weight: 700;
+}
+
+p.per-day {
+    margin-bottom: 1.75rem;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    color: var(--cyan-bright);
+    font-size: 0.875rem;
+    margin-bottom: 0.15rem;
+}
+
+button.sign-up {
+    width: 100%;
+    background-color: var(--bright-yellow);
+    color: white;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    padding: 1rem;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0px 5px 10px hsla(0, 0%, 0%, 0.2);
+    cursor: pointer;
+}
+
+button.sign-up:hover {
+    background-color: var(--bright-yellow-light);
+}
+
+button.sign-up:active {
+    background-color: var(--bright-yellow-bright);
+}
+
+
+/* COLOR THEMES */
+.theme-white {
+    background-color: white;
+}
+.theme-white h2 {
+    color: var(--cyan);
+}
+.theme-white p {
+    color: var(--grayish-blue)
+}
+.theme-white p strong {
+    color: var(--bright-yellow);
+}
+
+.theme-dark {
+    background-color: var(--cyan);
+}
+.theme-dark p.per-month {
+    color: var(--cyan-bright);
+}
+.theme-dark p.per-month strong{
+    color: white;
+}
+
+.theme-light {
+    background-color: var(--cyan-light);
+}
+
+
+/* LAYOUT CHANGES */
+@media screen and (min-width: 640px) {
+    .price-component {
+        max-width: 40rem;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 45% auto;
+    }
+
+    .price-component > :first-child {
+        grid-column: 1 / 3;
+    }
+}
+
+/* MISC */
+p.attribution {
+    color: steelblue;
+    font-size: 10px;
     text-align: center;
+    margin-bottom: 0;
 }
 .attribution a {
     color: hsl(228, 45%, 44%);
+}
+.attribution a:hover {
+    color: hsl(228, 45%, 70%);
 }
